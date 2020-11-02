@@ -9,5 +9,3 @@ ordenada([N1, N2|T]):-
     integer(N1), integer(N2),
     N1 =< N2,
     ordenada([N2|T]).
-
-/*10.b)*/
