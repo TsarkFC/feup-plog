@@ -9,6 +9,10 @@
 magicN(N, Vars) :-
     ground(N),
     N>2,
-
+    D is N*N,
+    lenght(Linhas, N),
+    maplist(same_length(Linhas), Linhas),
+    transpose(Linhas, Colunas),
+    
     %use: sum/3, all_distinct/1, domain
 .
