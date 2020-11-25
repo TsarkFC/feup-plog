@@ -1,22 +1,19 @@
 %countries(+Company, -ListOfCountries)
 countries(Company, ListOfCountries) :-
-    createList([], ListOfCountries).
+    findCountries(Company, ListOfCountries, []).
 
-operates(Company, Country) :-
-    airport(_, Code, Country),
-    flight(_, Code, _, _, _, Company).
-
-operates(Company, Country) :-
-    airport(_, Code, Country),
-    flight(_, _, Code, _, _, Company).
-
-createList(List, ListOfCountries) :-
+findCountries(Company, [Country | ListOfCountries], Seen) :-
     airport(_, _, Country),
-    operates(Company, Country),
-    fail.
+    companyOperatesInCountry(Company, Country),
+    \+member(Country, Seen), !,
+    findCountries(Company, ListOfCountries, [Country | Seen]).
+findCountries(_, [], _) :- !.
 
-find([], _) :- false.
-find([H|T], Element) :-
-    Element =:= H.
-find([H|T], Element) :-
-    find(T, Element).
+companyOperatesInCountry(Company, Country) :-
+    flight(_, Origin, Dest, _, _, Company),
+    airport(_, Origin, OriginCountry),
+    airport(_, Dest, DestCountry),
+    (
+        OriginCountry = Country;
+        DestCountry = Country
+    ), !.
