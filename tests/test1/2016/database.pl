@@ -1,3 +1,5 @@
+:- dynamic film/4.
+
 %film(Title, Categories, Duration, AvgClassification)
 film('Doctor Strange', [action, adventure, fantasy], 115, 7.6).
 film('Hacksaw Ridge', [biography, drama, romance], 131, 8.7).
