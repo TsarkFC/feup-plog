@@ -1,3 +1,6 @@
-[submodule "project"]
-	path = project
-	url = https://github.com/rafaavc/plog-proj
+[submodule "project2"]
+	path = project2
+	url = https://github.com/TsarkFC/plog-proj2
+[submodule "project1"]
+	path = project1
+	url = https://github.com/rafaavc/plog-proj1
