@@ -8,9 +8,9 @@ pres(N, K, Vars) :-
     length(Vars, N),
     domain(Vars, 1, K),
     %
-    indices(1, Vars),
+    indices(1, Vars).
     %
-    labeling([], Vars).
+    %labeling([], Vars).
 
 indices(I, [V|Vs]) :-
     V mod 2 #\= I mod 2,
@@ -21,8 +21,8 @@ indices(_, []).
 % 3: Encontra soluções onde a paridade do indíce de cada pessoa (começando por 1)
 %    é diferente do valor de paridade do indíce do presente.
 
-% 4: O limite inferior ou superior do domínio das variáveis é alterado. 
+% 4: Sim, mas apenas em algumas das variáveis. 
 % Ex. K=par, variáveis de índice ímpar => [2, K]
 %            variáveis de índice par => [1, K-1]
 % Ex. K=ímpar, variáveis de índice ímpar => [2, K-1]
-%            variáveis de índice par => [1, K]
+%            variáveis de índice par => [1, K] -> domínio não é alterado
