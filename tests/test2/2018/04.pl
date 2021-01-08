@@ -25,7 +25,7 @@ buildPairs(MenHeights, WomenHeights, Delta, [P|PairsT]) :-
     element(ManId, MenHeights, ManHeight),
     element(WomanId, WomenHeights, WomanHeight),
 
-    ManHeight #=< WomanHeight + 10,
+    ManHeight #=< WomanHeight + Delta,
     ManHeight #>= WomanHeight,
 
     P = ManId-WomanId,
